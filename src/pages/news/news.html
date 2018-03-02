@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Artikel</ion-title>
+      <!-- <ion-buttons end>
+        <button ion-button icon-only color="royal" (tap)="GetDataArticle()">
+          <ion-icon name="refresh"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-card *ngFor="let item of NewsData | async">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="assets/imgs/logo.png">
+              </ion-avatar>
+              <h2>Admin</h2>
+              <p>{{item.createdAt | relativetime}}</p>
+            </ion-item>
+            <img src="{{apiendpoint}}/{{item.gambar}}">
+            <ion-card-content>
+              <p>{{item.deskripsisingkat}}</p>
+            </ion-card-content>
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-left clear small (tap)="GotoMaps(item)">
+                    <ion-icon ios="ios-map" md="md-map"></ion-icon>
+                  <div>Maps</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-left clear small (tap)="viewed(item)">
+                  <ion-icon name="eye"></ion-icon>
+                  <div>Lihat Detil</div>
+                </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                  {{item.createdAt | relativetime}}
+                </ion-note>
+              </ion-col>
+            </ion-row>
+          
+          </ion-card>
+  </ion-content>
+  <ion-footer >
+      <ion-toolbar>
+        <ion-title class="custom">
+            <h6>Dikelola oleh IT BPPK</h6></ion-title>
+      </ion-toolbar>
+  </ion-footer>
+  

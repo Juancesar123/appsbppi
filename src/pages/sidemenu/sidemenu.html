@@ -1,0 +1,23 @@
+<ion-menu [content]="content" >
+  <ion-header>
+        <ion-navbar color="danger">
+            <ion-title>Menu</ion-title>
+        </ion-navbar>
+    <!-- <ion-card text-center class="hide-card">
+      <img src="assets/imgs/default1.jpg" class="custom-avatar"/>
+      <h2>Juan Ceasar Andrianto</h2>
+      <p>Nomor Induk:1001</p>
+      <hr>
+    </ion-card>   -->
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button color="primary" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

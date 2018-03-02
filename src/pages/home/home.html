@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="tengah">Beranda BPPK</ion-title>
+</ion-navbar>
+<ion-navbar color="danger">
+    <ion-toolbar no-border-top>
+        <ion-searchbar #searchbar [(ngModel)]="searchString" (search)="searchByKeyword()" showCancelButton="true">
+        </ion-searchbar>
+      </ion-toolbar>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding> 
+  <ion-card>
+      
+    <ion-card-header>
+      Progress SPK
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+          <ion-item>
+            <ion-label floating>No SPK</ion-label>
+            <ion-input type="text" ></ion-input>
+          </ion-item>
+           
+        </ion-list>
+    </ion-card-content>
+    <div padding> 
+      <button ion-button full icon-start >
+        <ion-icon  name="key"></ion-icon> 
+        Lihat Progress
+      </button>
+    </div>
+  </ion-card>
+  <ion-card>
+  
+    <ion-card-header>
+      Pencarian Tarif
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+          <ion-item>
+            <ion-label floating>Nama Tarif</ion-label>
+            <ion-input type="text" ></ion-input>
+          </ion-item>
+           
+        </ion-list>
+    </ion-card-content>
+    <div padding> 
+      <button ion-button full icon-start >
+        <ion-icon  name="key"></ion-icon> 
+        Cari Tarif
+      </button>
+    </div>
+  </ion-card>
+</ion-content>
+<ion-footer >
+  <ion-toolbar>
+    <ion-title class="custom">
+        <h6>Dikelola oleh IT BPPK</h6></ion-title>
+  </ion-toolbar>
+</ion-footer>

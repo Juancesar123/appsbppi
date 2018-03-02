@@ -1,0 +1,34 @@
+<!--
+  Generated template for the SetactivityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="danger">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Set Aktifitas</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Nama Labs</ion-label>
+          <ion-input type="text" [(ngModel)]="labs"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Keterangan</ion-label>
+          <ion-textarea [(ngModel)]="keterangan"></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <div padding> 
+          <button ion-button full icon-start (tap)="Save()">
+            <ion-icon  name="send"></ion-icon> 
+            Submit
+          </button>
+        </div>
+</ion-content>

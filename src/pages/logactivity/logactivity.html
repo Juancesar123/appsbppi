@@ -1,0 +1,72 @@
+<!--
+  Generated template for the LogactivityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Log Aktifitas</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only color="royal" (tap)="GetLogActivity()">
+              <ion-icon name="refresh"></ion-icon>
+          </button>
+        </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div padding>
+        <ion-segment [(ngModel)]="activity">
+          <ion-segment-button value="Today">
+              Today
+          </ion-segment-button>
+          <ion-segment-button value="All">
+              All
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div [ngSwitch]="activity">
+        <ion-card *ngFor="let item of DataLog" [hidden] ="item.status =='disaccept'">
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/check.png">
+            </ion-avatar>
+            <h2>Information</h2>
+            <p>November 5, 1955</p>
+          </ion-item>
+          <ion-card-content>
+            <p>Your Confirmation accepted!</p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col center text-center>
+              <ion-note>
+                11h ago
+              </ion-note>
+            </ion-col>
+          </ion-row>
+          </ion-card>
+          <ion-card *ngFor="let item of DataLog" [hidden] ="item.status =='accept'">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="assets/imgs/close_red.png">
+              </ion-avatar>
+              <h2>Information</h2>
+              <p>November 5, 1955</p>
+            </ion-item>
+            <ion-card-content>
+              <p>Your Confirmation Declined!</p>
+            </ion-card-content>
+            <ion-row>
+              <ion-col center text-center>
+                <ion-note>
+                  11h ago
+                </ion-note>
+              </ion-col>
+            </ion-row>
+            </ion-card>
+          </div>
+</ion-content>
