@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>View Detail</ion-title>
+    <ion-title>Detail Artikel</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,8 +15,14 @@
 
 <ion-content padding>
   <div padding>
-    <img src="{{apiendpoint}}/{{gambar}}"> 
+    <img src="{{urlgambar}}/{{gambar}}"> 
   </div>
-  <ion-title>{{title}}</ion-title>
-  {{deskripsi}}
+ <h2>{{title}}</h2>
+  <div [innerHTML]="deskripsi">
+    </div>
 </ion-content>
+<ion-footer >
+  <ion-toolbar class="custom">
+    Dikelola oleh IT BPPK
+</ion-toolbar>
+</ion-footer>

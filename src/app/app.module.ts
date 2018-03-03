@@ -1,3 +1,4 @@
+import { ViewdetaillabPageModule } from './../pages/viewdetaillab/viewdetaillab.module';
 import { SidemenuPageModule } from './../pages/sidemenu/sidemenu.module';
 import { SearchartikelPageModule } from './../pages/searchartikel/searchartikel.module';
 import { TentangkamiPageModule } from './../pages/tentangkami/tentangkami.module';
@@ -40,6 +41,7 @@ import { OrganisasiProvider } from '../providers/organisasi/organisasi';
 import { RealtimeapiProvider } from '../providers/realtimeapi/realtimeapi';
 import { FormPage } from '../pages/areapelanggan/form';
 import { IonicStorageModule } from '@ionic/storage';
+import { FasilitaslabProvider } from '../providers/fasilitaslab/fasilitaslab';
 @NgModule({
   declarations: [
     MyApp,
@@ -57,6 +59,7 @@ import { IonicStorageModule } from '@ionic/storage';
     //PipesModule,
     SearchartikelPageModule,
     SidemenuPageModule,
+    ViewdetaillabPageModule,
     TentangkamiPageModule,
     LoginformPageModule,
     NewsPageModule,
@@ -93,7 +96,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HukumdanperaturanProvider,
     FasilitasdanlabProvider,
     OrganisasiProvider,
-    RealtimeapiProvider
+    RealtimeapiProvider,
+    FasilitaslabProvider
   ]
 })
 export class AppModule {}

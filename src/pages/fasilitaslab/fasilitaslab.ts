@@ -1,3 +1,5 @@
+import { ViewdetaillabPage } from './../viewdetaillab/viewdetaillab';
+import { FasilitaslabProvider } from './../../providers/fasilitaslab/fasilitaslab';
 import { prodVariables } from './../../app/production';
 import { FasilitasdanlabProvider } from './../../providers/fasilitasdanlab/fasilitasdanlab';
 import { Component } from '@angular/core';
@@ -17,9 +19,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   providers:[FasilitasdanlabProvider]
 })
 export class FasilitaslabPage {
+  urlgambar:any = prodVariables.apigambar;
   Datafasilitaslab:any;
   apiendpoint:any = prodVariables.apiEndpoint;
-  constructor(public FasilitaslabService:FasilitasdanlabProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public FasilitaslabService:FasilitaslabProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.GetData()
   }
 
@@ -27,6 +30,9 @@ export class FasilitaslabPage {
     console.log('ionViewDidLoad FasilitaslabPage');
   }
   GetData(){
-    return this.FasilitaslabService.GetData().subscribe((result)=>this.Datafasilitaslab = result);
+    return this.FasilitaslabService.getdata().subscribe((result)=>this.Datafasilitaslab = result);
+  }
+  viewed(item){
+    this.navCtrl.push(ViewdetaillabPage,{'item':item})
   }
 }

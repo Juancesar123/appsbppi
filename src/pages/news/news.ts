@@ -33,6 +33,7 @@ export class NewsPage {
   NewsData:Observable<any[]>;
   items;
   apiendpoint:any = prodVariables.apiEndpoint;
+  urlgambar:any = prodVariables.apigambar;
   constructor(public ToastMessage:ToastController,public navCtrl: NavController, public navParams: NavParams, public ArticleService:ArticleProvider) {
     this.GetDataArticle();
    // this.initializeItems();

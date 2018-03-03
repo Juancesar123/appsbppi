@@ -24,4 +24,10 @@ export class AuthenticationProvider {
     let options = new RequestOptions({headers:header});
     return this.http.get(prodVariables.apiEndpoint+'/users?email='+data.email,options).map(res => res.json().data);
   }
+  updateplayer(playerid,id){
+    let header = new Headers({'content-Type':'application/json','Authorization':localStorage.getItem('token')});
+    let options = new RequestOptions({headers:header});
+    return this.http.patch(prodVariables.apiEndpoint+'/users/'+id,{"playerid":playerid},options).map(res => res.json().data);
+  
+  }
 }

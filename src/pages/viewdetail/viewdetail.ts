@@ -16,6 +16,7 @@ import { prodVariables } from '../../app/production';
 })
 export class ViewdetailPage {
   apiendpoint:any = prodVariables.apiEndpoint;
+  urlgambar:any = prodVariables.apigambar;
   DataArticle;
   title:String;
   deskripsi:String;
@@ -23,8 +24,8 @@ export class ViewdetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.DataArticle = this.navParams.get('data');
     this.title = this.DataArticle.judul;
-    this.deskripsi = this.DataArticle.deskripsi;
-    this.gambar = this.DataArticle.gambar;
+    this.deskripsi = this.DataArticle.isi;
+    this.gambar = this.DataArticle.artikel_file;
   }
 
   ionViewDidLoad() {

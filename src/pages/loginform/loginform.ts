@@ -4,11 +4,13 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { SHARED_FORM_DIRECTIVES } from '@angular/forms/src/directives';
 import { MyApp } from '../../app/app.component';
 import { Storage } from '@ionic/storage';
+import { OneSignal } from '@ionic-native/onesignal';
+
 /**
  * Generated class for the LoginformPage page.
  *
@@ -26,7 +28,7 @@ export class LoginformPage {
   username:string;
   password:String;
   data;
-  constructor(public storage:Storage,public loading:LoadingController,public toastmessage:ToastController ,public navCtrl: NavController, public navParams: NavParams, public AuthService:AuthenticationProvider) {
+  constructor(public one:OneSignal,public event:Events,public storage:Storage,public loading:LoadingController,public toastmessage:ToastController ,public navCtrl: NavController, public navParams: NavParams, public AuthService:AuthenticationProvider) {
   }
 
   ionViewDidLoad() {
@@ -53,7 +55,15 @@ export class LoginformPage {
       this.AuthService.getuserdetail(data).subscribe(value =>{
         loading.dismiss()
         value.forEach(element => {
-          this.storage.set('email',val.email).then(() =>{
+          this.one.getIds().then((val)=>{
+            let playerid = val.userId;
+            let id = element.id;
+            this.AuthService.updateplayer(playerid,id).subscribe(()=>{})
+            let six = val.userId
+            console.log(six)
+          })
+          this.storage.set('name',element.fullname).then(() =>{
+            this.event.publish('login');
             this.navCtrl.setRoot(SidemenuPage)
             .then(() =>{
               this.navCtrl.popToRoot();
@@ -70,5 +80,7 @@ export class LoginformPage {
       messagesuccess.present();
     })
   }
-
+  home(){
+    this.navCtrl.setRoot(SidemenuPage)
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Nav, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { TentangkamiPage } from '../tentangkami/tentangkami';
@@ -29,29 +29,62 @@ export class SidemenuPage {
 
   pages:any;
   datauser;
-  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
-      this.pages = [
-            { title:'Beranda BBPK', component: HomePage,icon: 'home'},
-            { title:'Tentang Kami', component:TentangkamiPage,icon:'ios-people'},
-            { title:'Artikel', component:NewsPage,icon:'book'},
-            { title:'Fasilitas Lab', component:FasilitaslabPage,icon:'medkit'},
-            { title:'Organisasi', component:OrganisasiPage,icon:'speedometer'},
-          ];
-            storage.get('email').then((val) => {
+  constructor(public events:Events,public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
+   
+    storage.get('name').then((val) => {
+          if (val == null) {
+            this.datauser= val
+            this.pages = [
+              { title:'Beranda BPPK', component: HomePage,icon: 'home'},
+              { title:'Tentang Kami', component:TentangkamiPage,icon:'ios-people'},
+              { title:'Artikel', component:NewsPage,icon:'book'},
+              { title:'Fasilitas Lab', component:FasilitaslabPage,icon:'medkit'},
+              { title:'Organisasi', component:OrganisasiPage,icon:'speedometer'},
+              { title:'Masuk', component:LoginformPage,icon:'key'},
+            ];
+          }else{
+            this.datauser= val
+            this.pages = [
+              { title:'Beranda BPPK', component: HomePage,icon: 'home'},
+              { title:'Tentang Kami', component:TentangkamiPage,icon:'ios-people'},
+              { title:'Artikel', component:NewsPage,icon:'book'},
+              { title:'Fasilitas Lab', component:FasilitaslabPage,icon:'medkit'},
+              { title:'Organisasi', component:OrganisasiPage,icon:'speedometer'},
+              { title:'Keluar', component:LogoutPage,icon:'power'}
+            ];
+          }
+      })
+    events.subscribe('login', () => {
+
+            storage.get('name').then((val) => {
               this.datauser = val;
-              if(val==null){
-                console.log('kuppret');
-                this.pages.push({ title:'Masuk', component:LoginformPage,icon:'key'})
-                console.log(this.pages);
-              }else{
-                console.log('kampret');
-                this.pages.push({ title:'Keluar', component:LogoutPage,icon:'power'})
-                console.log(this.pages);
-              }
-            });
+              this.pages = [
+                { title:'Beranda BPPK', component: HomePage,icon: 'home'},
+                { title:'Tentang Kami', component:TentangkamiPage,icon:'ios-people'},
+                { title:'Artikel', component:NewsPage,icon:'book'},
+                { title:'Fasilitas Lab', component:FasilitaslabPage,icon:'medkit'},
+                { title:'Organisasi', component:OrganisasiPage,icon:'speedometer'},
+                { title:'Keluar', component:LogoutPage,icon:'power'}
+              ];
+          })
+        })
+        events.subscribe('logout', () => {
+          storage.get('name').then((val) => {
+            this.datauser ='';
+            this.pages = [
+              { title:'Beranda BPPK', component: HomePage,icon: 'home'},
+              { title:'Tentang Kami', component:TentangkamiPage,icon:'ios-people'},
+              { title:'Artikel', component:NewsPage,icon:'book'},
+              { title:'Fasilitas Lab', component:FasilitaslabPage,icon:'medkit'},
+              { title:'Organisasi', component:OrganisasiPage,icon:'speedometer'},
+              { title:'Masuk', component:LoginformPage,icon:'key'},
+            ];
+        })
+      })
   }
 
   openPage(page) {
+    
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
