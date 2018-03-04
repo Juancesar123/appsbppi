@@ -24,14 +24,14 @@
       <ion-list>
           <ion-item>
             <ion-label floating>No SPK</ion-label>
-            <ion-input type="text" ></ion-input>
+            <ion-input type="text" [(ngModel)]="nospk"></ion-input>
           </ion-item>
            
         </ion-list>
     </ion-card-content>
     <div padding> 
-      <button ion-button full icon-start >
-        <ion-icon  name="key"></ion-icon> 
+      <button ion-button full icon-start  (tap)="viewprogress()">
+        <ion-icon  name="eye" ></ion-icon> 
         Lihat Progress
       </button>
     </div>
@@ -46,13 +46,13 @@
       <ion-list>
           <ion-item>
             <ion-label floating>Nama Tarif</ion-label>
-            <ion-input type="text" ></ion-input>
+            <ion-input type="text" [(ngModel)]="tarif"></ion-input>
           </ion-item>
            
         </ion-list>
     </ion-card-content>
     <div padding> 
-      <button ion-button full icon-start >
+      <button ion-button full icon-start (tap)="viewtarif()" >
         <ion-icon  name="key"></ion-icon> 
         Cari Tarif
       </button>

@@ -16,20 +16,19 @@
 <ion-content padding>
     <ion-card *ngFor="let item of Datafasilitaslab">
         <ion-card-content>
-            <img src="{{urlgambar}}/{{item.laboratorium_file}}" style="width: 100%;height:40%">
-            <p>{{item.namalab}}</p>
-        </ion-card-content>
         <ion-row>
           <ion-col>
-            <button ion-button icon-left clear small (tap)="viewed(item)">
-              <ion-icon name="eye"></ion-icon>
-              <div>Lihat Detil</div>
-            </button>
+            <strong><div style="font-size: 15px">{{item.namalab}}</div></strong>
           </ion-col>
-        </ion-row>
-      
+            <ion-col>
+                <button ion-button icon-left clear small (tap)="viewed(item)">
+                    <ion-icon name="eye"></ion-icon>
+                  </button>
+            </ion-col>
+          </ion-row>
+            <img src="{{urlgambar}}/files/artikel/{{item.laboratorium_file}}" style="width: 100%;height:120px;">
+        </ion-card-content>
       </ion-card>
-
 </ion-content>
 <ion-footer >
   <ion-toolbar class="custom">

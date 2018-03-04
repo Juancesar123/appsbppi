@@ -1,3 +1,5 @@
+import { ListviewtarifPageModule } from './../pages/listviewtarif/listviewtarif.module';
+import { NotifikasispkPageModule } from './../pages/notifikasispk/notifikasispk.module';
 import { ViewdetaillabPageModule } from './../pages/viewdetaillab/viewdetaillab.module';
 import { SidemenuPageModule } from './../pages/sidemenu/sidemenu.module';
 import { SearchartikelPageModule } from './../pages/searchartikel/searchartikel.module';
@@ -42,6 +44,8 @@ import { RealtimeapiProvider } from '../providers/realtimeapi/realtimeapi';
 import { FormPage } from '../pages/areapelanggan/form';
 import { IonicStorageModule } from '@ionic/storage';
 import { FasilitaslabProvider } from '../providers/fasilitaslab/fasilitaslab';
+import { NotifikasispkProvider } from '../providers/notifikasispk/notifikasispk';
+import { ListviewtarifProvider } from '../providers/listviewtarif/listviewtarif';
 @NgModule({
   declarations: [
     MyApp,
@@ -56,6 +60,8 @@ import { FasilitaslabProvider } from '../providers/fasilitaslab/fasilitaslab';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    NotifikasispkPageModule,
+    ListviewtarifPageModule,
     //PipesModule,
     SearchartikelPageModule,
     SidemenuPageModule,
@@ -97,7 +103,9 @@ import { FasilitaslabProvider } from '../providers/fasilitaslab/fasilitaslab';
     FasilitasdanlabProvider,
     OrganisasiProvider,
     RealtimeapiProvider,
-    FasilitaslabProvider
+    FasilitaslabProvider,
+    NotifikasispkProvider,
+    ListviewtarifProvider
   ]
 })
 export class AppModule {}

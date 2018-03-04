@@ -1,3 +1,5 @@
+import { ListviewtarifPage } from './../listviewtarif/listviewtarif';
+import { NotifikasispkPage } from './../notifikasispk/notifikasispk';
 import { ArticleProvider } from './../../providers/article/article';
 import { SearchartikelPage } from './../searchartikel/searchartikel';
 import { NewsPage } from './../news/news';
@@ -12,6 +14,8 @@ import { NavController, Searchbar } from 'ionic-angular';
 
 export class HomePage {
   searchString:String;
+  nospk :String;
+  tarif:String;
   @ViewChild(Searchbar)searchbar:Searchbar;
   ionViewDidEnter() {
     setTimeout(() => {
@@ -27,5 +31,13 @@ export class HomePage {
     this.articleservice.searchartikel(data).subscribe(val =>{
       this.navCtrl.push(SearchartikelPage,{'item':val});
     })
+  }
+  viewprogress(){
+    let nospk = this.nospk;
+    this.navCtrl.push(NotifikasispkPage,{'nospk':nospk});
+  }
+  viewtarif(){
+    let tarif = this.tarif;
+    this.navCtrl.push(ListviewtarifPage,{'tarif':tarif});
   }
 }

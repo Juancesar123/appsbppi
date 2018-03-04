@@ -59,9 +59,9 @@ export class LoginformPage {
             let playerid = val.userId;
             let id = element.id;
             this.AuthService.updateplayer(playerid,id).subscribe(()=>{})
-            let six = val.userId
-            console.log(six)
-          })
+              let six = val.userId
+            })
+          this.storage.set('id',element.id);
           this.storage.set('name',element.fullname).then(() =>{
             this.event.publish('login');
             this.navCtrl.setRoot(SidemenuPage)
