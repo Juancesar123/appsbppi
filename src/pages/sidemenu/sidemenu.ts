@@ -85,11 +85,6 @@ export class SidemenuPage {
   }
 
   openPage(page) {
-    if(page.title='Keluar'){
-      let id = this.storage.get('id');
-      let playerid = '';
-      this.auth.updateplayer(playerid,id);
-    }
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);

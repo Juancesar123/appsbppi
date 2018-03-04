@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { SidemenuPage } from './../sidemenu/sidemenu';
 import { MyApp } from './../../app/app.component';
 import { HomePage } from './../home/home';
@@ -18,11 +19,18 @@ import { Storage } from '@ionic/storage';
 })
 export class LogoutPage {
 
-  constructor(public events:Events,public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public auth:AuthenticationProvider,public events:Events,public storage:Storage,public navCtrl: NavController, public navParams: NavParams) {
     this.events.publish('logout');
-      this.storage.clear().then(()=>{
-        this.navCtrl.setRoot(SidemenuPage);
-      })
+    this.storage.get('id').then((val) => {
+      let playerid = '';
+      this.auth.updateplayer(playerid,val).subscribe((val) =>{
+        this.storage.clear().then(()=>{
+          this.navCtrl.setRoot(SidemenuPage);
+        })
+      });
+    });
+      
+      
       
   }
 

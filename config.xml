@@ -79,6 +79,7 @@
     <allow-navigation href="http://192.168.100.9:8100" />
     <allow-navigation href="http://192.168.0.122:8100" />
     <allow-navigation href="http://192.168.42.73:8100" />
+    <allow-navigation href="http://192.168.0.104:8100" />
     <engine name="android" spec="7.1.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyChy8kpyjQFtGqSNWjLDFJ5eKVoT84s8V4" />
