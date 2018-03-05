@@ -5,9 +5,13 @@ page-home {
       .custom{
           text-align:center;
           font-size: 13px;
-      }
-	  .foo{
-		height: 35px !important;
+      } 
+		.footer  {
+			height: 35px !important;
 		}
-
+		.toolbar-md
+		{
+			padding: 2px;
+			min-height: 35px;
+		}
 }
