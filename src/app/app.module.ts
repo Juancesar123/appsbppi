@@ -1,3 +1,5 @@
+import { ComponentsModule } from './../components/components.module';
+import { FooterPageModule } from './../pages/footer/footer.module';
 import { ListviewtarifPageModule } from './../pages/listviewtarif/listviewtarif.module';
 import { NotifikasispkPageModule } from './../pages/notifikasispk/notifikasispk.module';
 import { ViewdetaillabPageModule } from './../pages/viewdetaillab/viewdetaillab.module';
@@ -46,6 +48,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FasilitaslabProvider } from '../providers/fasilitaslab/fasilitaslab';
 import { NotifikasispkProvider } from '../providers/notifikasispk/notifikasispk';
 import { ListviewtarifProvider } from '../providers/listviewtarif/listviewtarif';
+import { FooterPage } from '../pages/footer/footer';
 @NgModule({
   declarations: [
     MyApp,
@@ -62,6 +65,7 @@ import { ListviewtarifProvider } from '../providers/listviewtarif/listviewtarif'
     IonicStorageModule.forRoot(),
     NotifikasispkPageModule,
     ListviewtarifPageModule,
+    ComponentsModule,
     //PipesModule,
     SearchartikelPageModule,
     SidemenuPageModule,

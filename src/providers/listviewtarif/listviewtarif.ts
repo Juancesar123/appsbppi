@@ -16,7 +16,7 @@ export class ListviewtarifProvider {
   constructor(public http: Http) {
     console.log('Hello ListviewtarifProvider Provider');
   }
-  getdata(tarif):Observable<any[]>{
-    return this.http.get(prodVariables.apiEndpoint+'/tabletarifcheck?Uraian_parameter='+tarif).map(m => m.json());
+  getdata():Observable<any[]>{
+    return this.http.get(prodVariables.apiEndpoint+'/tabletarifcheck').map(m => m.json());
   }
 }

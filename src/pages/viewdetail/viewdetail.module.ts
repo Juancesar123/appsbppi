@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ViewdetailPage } from './viewdetail';
@@ -8,6 +9,7 @@ import { ViewdetailPage } from './viewdetail';
   ],
   imports: [
     IonicPageModule.forChild(ViewdetailPage),
+    ComponentsModule
   ],
 })
 export class ViewdetailPageModule {}

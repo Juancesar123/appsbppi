@@ -20,11 +20,11 @@
         <div class="col">Tarif Industri</div>
         <div class="col">Tarif Mahasiswa</div>
       </div>
-      <div class="row" *ngFor="let item of datatarif">
+      <div class="row" *ngFor="let item of datatarif | searchtarif:tarif">
         <div class="col" *ngIf="item == null">Data Tidak di temukan</div>
         <div class="col">{{item.Uraian_parameter}}</div>
         <div class="col">{{item.Uraian_contoh}}</div>
-        <div class="col">LK {{item.Tarif_industri}}</div>
+        <div class="col">{{item.Tarif_industri}}</div>
         <div class="col">{{item.Tarif_mahasiswa}}</div>
       </div>
     <!-- <ion-list>
@@ -34,3 +34,4 @@
         </ion-item>
       </ion-list> -->
 </ion-content>
+<footer></footer>

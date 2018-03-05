@@ -21,13 +21,13 @@ export class ListviewtarifPage {
   constructor(public listviewtarifServices:ListviewtarifProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.getdatatarif();
     this.tarif = this.navParams.get('tarif');
+    console.log(this.tarif);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListviewtarifPage');
   }
   getdatatarif(){
-    let tarif = this.navParams.get('tarif');
-    this.listviewtarifServices.getdata(tarif).subscribe((val) => this.datatarif = val);
+    this.listviewtarifServices.getdata().subscribe((val) => this.datatarif = val);
   }
 }
