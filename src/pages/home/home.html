@@ -14,7 +14,47 @@
 </ion-header>
 
 <ion-content padding> 
-  <ion-card>
+  
+    <ion-card  *ngIf="notifikasi">
+      <ion-card-content>
+    <!-- <div class="row header">
+        <div class="col">Nomor SPK</div>
+        <div class="col">Status PC</div>
+        <div class="col">Status KSIE</div>
+        <div class="col">Status Lab</div>
+        <div class="col">Status LHU</div>
+      </div>
+      <div class="row" *ngFor="let item of datanotifikasi">
+        <div class="col">{{item.no_spk}}</div>
+        <div class="col">{{item.status_pc}}</div>
+        <div class="col">{{item.status_kasiepengujian}}</div>
+        <div class="col">{{item.status_korlab}}</div>
+        <div class="col">123</div>
+      </div> -->
+      <div style="overflow-x:auto;">
+      <table>
+          <thead>
+            <th>Nomor SPK</th>
+            <th>Status PC</th>
+            <th>Status KSIE</th>
+            <th>Status Lab</th>
+            <th>Status LHU</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datanotifikasi">
+              <td>{{item.no_spk}}</td>
+              <td>{{item.status_pc}}</td>
+              <td>{{item.status_kasiepengujian}}</td>
+              <td>{{item.status_korlab}}</td>
+              <td>{{item.status_lhu}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </ion-card-content>
+    </ion-card>
+      <br>
+  <ion-card *ngIf="carispk">
       
     <ion-card-header>
       Progress SPK

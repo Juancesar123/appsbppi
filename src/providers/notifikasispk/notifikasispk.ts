@@ -19,4 +19,7 @@ export class NotifikasispkProvider {
    Getdata(userid,nospk):Observable<any[]>{
      return this.http.get(prodVariables.apiEndpoint + '/notifikasi?no_spk='+nospk).map(m =>m.json());
    }
+   getdataempty():Observable<any[]>{
+     return this.http.get(prodVariables.apiEndpoint+'/notifikasi?status_kirim=').map(m => m.json());
+   }
 }

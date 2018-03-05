@@ -11,4 +11,10 @@ page-loginform {
     ion-card-header{
         text-align: center;
     }
+    ion-content{ 
+        background-image: url('../assets/imgs/background.jpeg'); 
+          background-repeat: no-repeat;
+          background-position: center;
+            background-size: cover;
+        }
 }

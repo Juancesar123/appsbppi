@@ -14,4 +14,26 @@ page-home {
 			padding: 2px;
 			min-height: 35px;
 		}
+		header .col {
+			background-color:lightgrey;
+		}
+		
+		.col {
+			border: solid 1px grey;
+			border-bottom-style: none;
+			border-right-style: none;
+		}
+		.col:last-child {
+			border-right: solid 1px grey;
+		}
+		
+		.row:last-child .col {
+			border-bottom: solid 1px grey;
+		}
+		ion-content{ 
+				background-image: url('../assets/imgs/background.jpeg'); 
+			  	background-repeat: no-repeat;
+			  	background-position: center;
+				background-size: cover;
+			}
 }

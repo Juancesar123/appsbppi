@@ -17,4 +17,10 @@ page-listviewtarif {
 .row:last-child .col {
     border-bottom: solid 1px grey;
 }
+ion-content{ 
+    background-image: url('../assets/imgs/background.jpeg'); 
+      background-repeat: no-repeat;
+      background-position: center;
+        background-size: cover;
+    }
 }
