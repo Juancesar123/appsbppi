@@ -14,11 +14,16 @@
 
 
 <ion-content padding>
-  <div padding>
-    <img src="{{urlgambar}}/files/artikel/{{gambar}}"> 
-  </div>
- <h2>{{title}}</h2>
-  <div [innerHTML]="deskripsi">
-    </div>
+  <ion-card>
+    <ion-card-content>
+        <div padding>
+            <img src="{{urlgambar}}/files/artikel/{{gambar}}"> 
+          </div>
+         <h2>{{title}}</h2>
+          <div [innerHTML]="deskripsi">
+            </div>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
 <footer></footer>

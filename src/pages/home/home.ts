@@ -32,11 +32,11 @@ export class HomePage {
   constructor(public notifikasispk:NotifikasispkProvider,public storage:Storage,public navCtrl: NavController,public articleservice:ArticleProvider) {
     this.storage.get('name').then((val)=>{
       if(val == null){
-        this.carispk = false;
-        this.notifikasi = true;
-      }else{
         this.carispk = true;
         this.notifikasi = false;
+      }else{
+        this.carispk = false;
+        this.notifikasi = true;
       }
     });
     this.getNotifikasi();

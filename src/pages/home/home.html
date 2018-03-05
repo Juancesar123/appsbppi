@@ -31,22 +31,22 @@
         <div class="col">{{item.status_korlab}}</div>
         <div class="col">123</div>
       </div> -->
-      <div style="overflow-x:auto;">
-      <table>
+      <div style="overflow-x:auto; font-size:10px;">
+      <table  border=1>
           <thead>
-            <th>Nomor SPK</th>
-            <th>Status PC</th>
-            <th>Status KSIE</th>
-            <th>Status Lab</th>
-            <th>Status LHU</th>
+            <th style="width:50px;">No. SPK</th>
+            <th style="width:50px;">Status PC</th>
+            <th style="width:50px;">Status KASIE</th>
+            <th style="width:50px;">Status Lab</th>
+            <th style="width:20px;">Status LHU</th>
           </thead>
           <tbody>
             <tr *ngFor="let item of datanotifikasi">
-              <td>{{item.no_spk}}</td>
-              <td>{{item.status_pc}}</td>
-              <td>{{item.status_kasiepengujian}}</td>
-              <td>{{item.status_korlab}}</td>
-              <td>{{item.status_lhu}}</td>
+              <td style="text-align:center;">{{item.no_spk}}</td>
+              <td style="text-align:justify;">{{item.status_pc}}</td>
+              <td style="text-align:justify;">{{item.status_kasiepengujian}}</td>
+              <td style="text-align:justify;">{{item.status_korlab}}</td>
+              <td style="text-align:justify;">{{item.status_lhu}}</td>
           </tr>
           </tbody>
         </table>
@@ -57,7 +57,7 @@
   <ion-card *ngIf="carispk">
       
     <ion-card-header>
-      Progress SPK
+     <ion-icon name="barcode"></ion-icon> Progress SPK
     </ion-card-header>
   
     <ion-card-content>
@@ -79,7 +79,7 @@
   <ion-card>
   
     <ion-card-header>
-      Pencarian Tarif
+      <ion-icon name="stats"></ion-icon> Pencarian Tarif
     </ion-card-header>
   
     <ion-card-content>

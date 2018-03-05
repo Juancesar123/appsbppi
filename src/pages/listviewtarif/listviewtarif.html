@@ -14,19 +14,24 @@
 
 
 <ion-content padding>
-    <div class="row header">
-        <div class="col">Nama Tarif</div>
-        <div class="col">Nama Contoh</div>
-        <div class="col">Tarif Industri</div>
-        <div class="col">Tarif Mahasiswa</div>
-      </div>
-      <div class="row" *ngFor="let item of datatarif | searchtarif:tarif">
-        <div class="col" *ngIf="item == null">Data Tidak di temukan</div>
-        <div class="col">{{item.Uraian_parameter}}</div>
-        <div class="col">{{item.Uraian_contoh}}</div>
-        <div class="col">{{item.Tarif_industri}}</div>
-        <div class="col">{{item.Tarif_mahasiswa}}</div>
-      </div>
+  <ion-card>
+    <ion-card-content>
+        <div class="row header">
+            <div class="col">Nama Tarif</div>
+            <div class="col">Nama Contoh</div>
+            <div class="col">Tarif Industri</div>
+            <div class="col">Tarif Mahasiswa</div>
+          </div>
+          <div class="row" *ngFor="let item of datatarif | searchtarif:tarif">
+            <div class="col" *ngIf="item == null">Data Tidak di temukan</div>
+            <div class="col">{{item.Uraian_parameter}}</div>
+            <div class="col">{{item.Uraian_contoh}}</div>
+            <div class="col">{{item.Tarif_industri}}</div>
+            <div class="col">{{item.Tarif_mahasiswa}}</div>
+          </div>
+    </ion-card-content>
+  </ion-card>
+    
     <!-- <ion-list>
         <ion-item *ngFor="let item of datatarif">
           <h2>{{item.no_spk}}</h2>
