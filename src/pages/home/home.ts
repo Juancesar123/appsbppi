@@ -28,9 +28,7 @@ export class HomePage {
   }
   searchByKeyword(){
     let data = this.searchString
-    this.articleservice.searchartikel(data).subscribe(val =>{
-      this.navCtrl.push(SearchartikelPage,{'item':val});
-    })
+    this.navCtrl.push(SearchartikelPage,{'item':data});
   }
   viewprogress(){
     let nospk = this.nospk;

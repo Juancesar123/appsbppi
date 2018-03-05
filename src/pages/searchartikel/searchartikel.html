@@ -20,23 +20,23 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let item of data">
+  <ion-card *ngFor="let item of data | artikelsearch:querystring">
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/imgs/logo.png">
+        <img src="assets/Icona.png">
       </ion-avatar>
       <h2>Admin</h2>
-      <p>{{item.createdAt | relativetime}}</p>
+      <p>{{item.tgl_input | date}}</p>
     </ion-item>
-    <img src="{{apiendpoint}}/{{item.gambar}}">
     <ion-card-content>
-      <p>{{item.deskripsisingkat}}</p>
+        <img src="{{urlgambar}}/files/artikel/{{item.artikel_file}}" style="width: 100%;height:40%">
+        <br>
+        <strong><div style="font-size:20px"  (tap)="viewed(item)">{{item.judul}}</div></strong>
     </ion-card-content>
-    <ion-row>
       <ion-col>
         <button ion-button icon-left clear small (tap)="GotoMaps(item)">
             <ion-icon ios="ios-map" md="md-map"></ion-icon>
-          <div>Maps</div>
+          <div>Lihat Peta</div>
         </button>
       </ion-col>
       <ion-col>
@@ -45,12 +45,5 @@
           <div>Lihat Detil</div>
         </button>
       </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          {{item.createdAt | relativetime}}
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  
   </ion-card>
 </ion-content>
